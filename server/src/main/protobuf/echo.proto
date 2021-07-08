@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package rocks.heikoseeberger.echo;
+
+option java_package = "rocks.heikoseeberger.echo.grpc";
+
+service EchoService {
+    rpc Echo (EchoRequest) returns (EchoResponse);
+}
+
+message EchoRequest {
+    string text = 1;
+}
+
+message EchoResponse {
+    string text = 1;
+}
