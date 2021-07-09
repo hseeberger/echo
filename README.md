@@ -1,6 +1,6 @@
 # echo #
 
-Welcome to echo!
+Simple gRPC example with an Scala/Akka server and a Rust/tonic client.
 
 ## Contribution policy ##
 
