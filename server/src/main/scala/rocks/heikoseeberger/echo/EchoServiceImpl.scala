@@ -17,9 +17,13 @@
 package rocks.heikoseeberger.echo
 
 import scala.concurrent.Future
+import version.BuildInfo
 
 final class EchoServiceImpl extends grpc.EchoService {
 
   override def echo(request: grpc.EchoRequest): Future[grpc.EchoResponse] =
     Future.successful(grpc.EchoResponse(request.text))
+
+  override def version(in: grpc.VersionRequest): Future[grpc.VersionResponse] =
+    Future.successful(grpc.VersionResponse(BuildInfo.version, BuildInfo.scalaVersion))
 }

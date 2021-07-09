@@ -6,6 +6,7 @@ option java_package = "rocks.heikoseeberger.echo.grpc";
 
 service EchoService {
     rpc Echo (EchoRequest) returns (EchoResponse);
+    rpc Version (VersionRequest) returns (VersionResponse);
 }
 
 message EchoRequest {
@@ -14,4 +15,12 @@ message EchoRequest {
 
 message EchoResponse {
     string text = 1;
+}
+
+message VersionRequest {
+}
+
+message VersionResponse {
+    string version = 1;
+    string scala_version = 2;
 }

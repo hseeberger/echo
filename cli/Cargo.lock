@@ -106,7 +106,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "echo"
+name = "echo-client"
 version = "0.1.0"
 dependencies = [
  "prost",

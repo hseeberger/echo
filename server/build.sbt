@@ -27,7 +27,13 @@ inThisBuild(
 lazy val echo =
   project
     .in(file("."))
-    .enablePlugins(AkkaGrpcPlugin, AutomateHeaderPlugin, DockerPlugin, JavaAppPackaging)
+    .enablePlugins(
+      AkkaGrpcPlugin,
+      AutomateHeaderPlugin,
+      BuildInfoPlugin,
+      DockerPlugin,
+      JavaAppPackaging
+    )
     .settings(commonSettings)
     .settings(
       libraryDependencies ++= Seq(
@@ -45,6 +51,9 @@ lazy val echo =
         library.munit           % Test,
         library.munitScalaCheck % Test,
       ),
+      // BuildInfo settings
+      buildInfoKeys    := Seq[BuildInfoKey](version, scalaVersion),
+      buildInfoPackage := "version",
       // Docker settings
       dockerBaseImage     := "adoptopenjdk:11-jre-hotspot",
       dockerRepository    := Some("hseeberger"),
